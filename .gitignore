@@ -1,0 +1,27 @@
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+
+# Upload and generated files
+uploads/
+
+# Ignore local model artifact files if you want to keep repo smaller
+models/
+
+# Local test artifacts
+test_real.jpg
+
+# Logs and environment files
+*.log
+.env
+
+# Editor/temp files
+.DS_Store
+*.swp
+*.idea/
+.vscode/

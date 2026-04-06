@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FraudWatch AI | E-commerce Video & Image Analysis</title>
+    
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="background-elements">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <div class="dashboard-container">
+        
+        <!-- Header -->
+        <header class="glass-panel header">
+            <div class="logo">
+                <span class="shield-icon">🛡️</span>
+                <h1>FraudWatch <span class="accent-text">AI</span></h1>
+            </div>
+            <div class="system-status">
+                <span class="status-dot"></span> System Online
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Left Column: Upload -->
+            <section class="upload-section glass-panel">
+                <h2>Evidence Analysis</h2>
+                <p class="subtitle">Upload claimant images or video proofs for automated AI inspection.</p>
+                
+                <div class="drop-zone" id="drop-zone">
+                    <div class="drop-content">
+                        <span class="upload-icon">📁</span>
+                        <p>Drag & Drop media here</p>
+                        <p class="small">or</p>
+                        <button class="btn btn-outline" id="browse-btn">Browse Files</button>
+                    </div>
+                    <input type="file" id="file-input" accept="image/*,video/mp4,video/avi" hidden>
+                </div>
+
+                <div class="preview-container hidden" id="preview-container">
+                    <img id="image-preview" src="" alt="Evidence Preview">
+                    <video id="video-preview" src="" controls class="hidden"></video>
+                    
+                    <div class="preview-actions">
+                        <div class="file-info">
+                            <span class="file-name" id="file-name">filename.jpg</span>
+                            <span class="file-size" id="file-size">2.5 MB</span>
+                        </div>
+                        <button class="btn btn-danger" id="clear-btn">Clear</button>
+                        <button class="btn btn-primary" id="analyze-btn">Run Analysis</button>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div class="loading-state hidden" id="loading-state">
+                    <div class="spinner"></div>
+                    <p>Executing Deep Learning Models...</p>
+                    <p class="loading-subtext">Checking EXIF, ELA, and AI Classifiers</p>
+                </div>
+            </section>
+
+            <!-- Right Column: Results -->
+            <section class="results-section hidden" id="results-section">
+                
+                <!-- Verdict Header -->
+                <div class="verdict-banner glass-panel" id="verdict-banner">
+                    <h2 id="final-risk-level">Risk Level: HIGH</h2>
+                    <p id="final-recommendation">Recommendation: REJECT</p>
+                    <div class="score-display">
+                        <span id="final-score" class="score-number">98%</span>
+                        <span class="score-label">Fraud Probability</span>
+                    </div>
+                    <div class="analysis-time">
+                        <span class="time-label">Analysis Time:</span>
+                        <span id="analysis-time" class="time-value">2.3s</span>
+                    </div>
+                </div>
+
+                <!-- Grid of analyses -->
+                <div class="analysis-grid">
+                    
+                    <!-- AI Neural Net -->
+                    <div class="analysis-card glass-panel">
+                        <h3>🧠 Ensemble AI</h3>
+                        <div class="metric">
+                            <span class="metric-label">Prediction</span>
+                            <span class="metric-value font-mono" id="ai-prediction">AI-Generated</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Confidence</span>
+                            <span class="metric-value" id="ai-confidence">96.5%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" id="ai-progress-bar" style="width: 96.5%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Metadata -->
+                    <div class="analysis-card glass-panel">
+                        <h3>📄 EXIF Metadata</h3>
+                        <div class="flag-list-container">
+                            <ul id="metadata-flags" class="flag-list">
+                                <!-- Populated dynamically -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Tampering (ELA) -->
+                    <div class="analysis-card glass-panel">
+                        <h3>🔍 Pixel Tampering</h3>
+                        <div class="flag-list-container">
+                            <ul id="tampering-flags" class="flag-list">
+                                <!-- Populated dynamically -->
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <!-- Decision Action -->
+                <div class="decision-actions glass-panel">
+                    <h3>Manual Action</h3>
+                    <div class="action-buttons">
+                        <button class="btn btn-success action-btn" onclick="alert('Refund Approved!')">✅ Approve Refund</button>
+                        <button class="btn btn-flag action-btn" onclick="alert('Case Flagged for Senior Review.')">⚠️ Flag for Review</button>
+                        <button class="btn btn-danger action-btn" onclick="alert('Refund Rejected!')">❌ Reject Claim</button>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Injecting JS logic -->
+    <script src="js/app.js"></script>
+</body>
+</html>
