@@ -22,7 +22,7 @@ from utils.tampering_utils import analyze_tampering
 
 # Create Flask app
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["http://localhost:8080", "http://127.0.0.1:8080"], supports_credentials=True)
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER

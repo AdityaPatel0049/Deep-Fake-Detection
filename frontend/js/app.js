@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultsSection = document.getElementById('results-section');
     
     // API CONFIG
-    const API_URL = 'http://127.0.0.1:5000/api/predict';
-    const HEALTH_URL = 'http://127.0.0.1:5000/api/models';
+    const API_URL = 'http://localhost:5000/api/predict';
+    const HEALTH_URL = 'http://localhost:5000/api/models';
 
     let currentFile = null;
 
