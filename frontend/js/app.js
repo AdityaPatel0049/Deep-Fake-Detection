@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadingState = document.getElementById('loading-state');
     const resultsSection = document.getElementById('results-section');
     
-    // API CONFIG
-    const API_URL = 'http://localhost:5000/api/predict';
-    const HEALTH_URL = 'http://localhost:5000/api/models';
+    // API CONFIG - Update this URL when deploying
+    const API_URL = window.location.protocol + '//' + window.location.hostname + ':5000/api/predict';
+    const HEALTH_URL = window.location.protocol + '//' + window.location.hostname + ':5000/api/models';
 
     let currentFile = null;
 

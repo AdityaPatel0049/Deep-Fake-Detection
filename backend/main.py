@@ -217,4 +217,5 @@ def server_error(error):
     return jsonify({"error": "Internal server error"}), 500
 
 if __name__ == '__main__':
-    app.run(debug=API_DEBUG, host=API_HOST, port=API_PORT)
+    port = int(os.environ.get('PORT', API_PORT))
+    app.run(debug=API_DEBUG, host=API_HOST, port=port)
